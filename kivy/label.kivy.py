@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 import os
 
-# logging
-import icecream as ic
-import logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-_debug_method = logger.debug
-logger.debug = lambda *args, **kwargs: _debug_method(ic.argumentToString(' '.join(map(str, args))), **kwargs)
-logger.debug("here")
+# logging, log wraps logging and icecream
+import log
+logger = log.logger(__name__)
 
 import kivy
 kivy.require('2.3.0')
